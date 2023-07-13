@@ -1,57 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import PostList from './features/posts/PostList';
+import PostAdded from './features/posts/PostAdded';
+import Layout from './components/Layout';
+import { Routes, Route, Navigate} from 'react-router-dom';
+import SinglePostPage from './features/posts/SinglePostPage';
+import EditPostView from './features/posts/EditPostView';
+import UserList from './features/users/UserList';
+import UserPage from './features/users/UserPage';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+      <Routes>
+        <Route path="/" element={<Layout />} >
+
+          <Route index element={<PostList />} />
+          <Route path="post">
+            <Route index element={<PostAdded/>} />
+            <Route path=":postId" element={ <SinglePostPage />} />
+            <Route path="edit/:postId" element={ <EditPostView />} />
+          </Route>
+          <Route path='user'> 
+            <Route index element={<UserList />} />
+            <Route path=":userId" element={<UserPage />} />
+          </Route>
+          <Route path="*" element={ <Navigate to="/" replace />} />
+          
+        </Route>
+      </Routes>
   );
 }
 

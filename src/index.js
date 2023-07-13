@@ -6,15 +6,31 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
+import { fectchUsers } from './features/users/userSlice';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { fetchPosts } from './features/posts/postSlice';
+
+
+
 const container = document.getElementById('root');
 const root = createRoot(container);
 
+store.dispatch(fectchUsers())
+store.dispatch(fetchPosts())
+
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  
     <Provider store={store}>
-      <App />
+      <Router>
+        <Routes>
+          <Route path="/*" element={<App />} />
+        </Routes>
+      </Router>
+      
     </Provider>
-  </React.StrictMode>
+
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

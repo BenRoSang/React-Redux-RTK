@@ -11,3 +11,92 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App{
+  display: flex;
+  justify-content: space-around;
+}
+
+.container {
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 40px 0px 40px 0px;
+  width: 450px;
+  text-align: left;
+  padding: 20px;
+}
+
+.single {
+  width: 600px !important;
+}
+
+form {
+  text-align: left;
+}
+
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 275px;
+  padding: 5px;
+}
+textarea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 275px;
+  padding: 5px;
+  height: 150px;
+}
+
+select {
+  width: 50%;
+  height: 25px;
+}
+
+.author {
+  font-size: 12px;
+  font-style: italic;
+}
+
+h1,h2 {
+  margin: 5px 0px 5px 0px
+}
+
+button {
+  padding: 5px 8px 5px 8px;
+}
+
+.reaction-btn {
+  border: 0;
+  background: 0;
+  margin-left: 5px;
+}
+
+header {
+  display: flex;
+  padding: 10px 40px 10px 40px;
+  justify-content: space-between;
+  background-color: #942e7e;
+}
+
+nav > ul {
+  display: flex;
+  list-style-type: none;
+}
+
+ul > li {
+  padding: 0px 20px 0px 20px;
+  
+}
+
+ul > li > a {
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.btn-delete {
+  padding: 5px 8px 5px 8px;
+  background-color: #942e7e;
+  margin-left: 10px;
+  color: aliceblue;
+}
